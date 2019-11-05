@@ -10,17 +10,17 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const MainGrid = styled.section`
+const MainDiv = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;
 `;
 
-const MainDiv = (props:any):JSX.Element => (
-  <MainGrid>
+const MainGrid = (props:any):JSX.Element => (
+  <MainDiv>
     <GlobalStyle/>
     { props.children }
-  </MainGrid>
+  </MainDiv>
 );
 
-export { MainDiv };
+export { MainGrid };

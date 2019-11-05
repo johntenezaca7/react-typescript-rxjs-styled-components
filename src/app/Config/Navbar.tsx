@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "@reach/router";
-import { AppConfig } from "../interfaces/index";
-
 
 const Nav = styled.nav`
 
@@ -27,17 +25,18 @@ const Nav = styled.nav`
   }
 `;
 
-const NavBar = (props:AppConfig): JSX.Element => (
+const NavBar = (props:any): JSX.Element => (
   <Nav>
     <ul>
-      {props.links.map((link: string) => {
-        return (
-          <Link to={link} key={link}>
-            <li >{link}</li>
-          </Link>
-        );
-      })
-      }
+      <Link to="/">
+        <li >home</li>
+      </Link>
+      <Link to="users">
+        <li >Users</li>
+      </Link>
+      <Link to="messages">
+        <li >Messages</li>
+      </Link>
     </ul>
   </Nav>
 );

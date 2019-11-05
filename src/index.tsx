@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './app/App';
 
 ReactDOM.render(
-  <App links={["home", "users", "blinker", "messages"]}/>, 
+  <App links={["home", "users", "messages"]}/>, 
   document.getElementById('root')
 );
 

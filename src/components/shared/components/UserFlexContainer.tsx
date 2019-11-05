@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { device } from "./Breakpoints";
+import { device } from "../Breakpoints";
 
 const UserFlexContainer = styled.div`
   width: 100%;
@@ -27,6 +27,7 @@ const UserBoxContainer = styled.div`
   margin-left: 2rem;
   margin-bottom: 2rem;
   border: 1px solid black;
+  box-shadow: 6px 6px orange;
   transition: box-shadow 0.2s;
   cursor: pointer;
 
