@@ -1,8 +1,11 @@
 import React, { Component } from "react";
-import { Subscription } from "rxjs";
+import { Subscription, of } from "rxjs";
+import { tap, delay, catchError } from "rxjs/operators";
 
-import { Container, UserFlexContainer, UserBoxContainer } from "./shared";
+import { Container, UserFlexContainer, Loader } from "./shared";
 import { userService } from "../services";
+
+import { UserList } from "./UserList";
 
 interface Users {
   subscription: Subscription;
@@ -14,6 +17,7 @@ interface UsersProps {
 
 interface UsersState {
   listOfUsers: [];
+  loading: boolean
 }
 
 class Users extends Component<UsersProps, UsersState> {
@@ -21,35 +25,37 @@ class Users extends Component<UsersProps, UsersState> {
   constructor(props:UsersProps){
     super(props);
     this.state = {
-      listOfUsers: []
+      listOfUsers: [],
+      loading: true,
     };
   }
 
   componentDidMount() {
     this.subscription = userService(this.props.url)
-      .subscribe((users:any) => {
-        this.setState({ listOfUsers: users });
-      });
+      .pipe(
+        delay(1500),
+        tap(() => this.setState({ loading: false })),
+        tap((users:any) => this.setState({ listOfUsers: users })),
+        catchError(error => {
+          return of(error);
+        })
+      ).subscribe();
   }
 
   componentWillUnmount() {
     this.subscription.unsubscribe();
   }
 
-  render() {
-    const { listOfUsers } = this.state;
+  render():JSX.Element {
+    const { listOfUsers, loading } = this.state;
 
-    return(
+    return (
       <Container>
         <h1>Users</h1>
         <UserFlexContainer>
-          { listOfUsers.map((user:any):JSX.Element => {
-            return (
-              <UserBoxContainer key={user.name}>
-                {user.name}
-              </UserBoxContainer>
-            );
-          })}
+          {
+            loading ? <Loader/> : <UserList listOfUsers={listOfUsers}/>
+          }
         </UserFlexContainer>
       </Container>
     )

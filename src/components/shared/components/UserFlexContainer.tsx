@@ -31,6 +31,10 @@ const UserBoxContainer = styled.div`
   transition: box-shadow 0.2s;
   cursor: pointer;
 
+  &:hover {
+    box-shadow: 8px 8px orange;
+  }
+
   @media ${device.tablet} {
     width: calc(100% / 3 - 3rem);
     margin-right: 3rem;
