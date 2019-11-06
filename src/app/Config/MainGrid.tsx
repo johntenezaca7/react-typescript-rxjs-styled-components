@@ -7,13 +7,14 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: 'Cairo', sans-serif;
+    height: 100vh;
   }
 `;
 
 const MainDiv = styled.section`
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 `;
 
 const MainGrid = (props:any):JSX.Element => (

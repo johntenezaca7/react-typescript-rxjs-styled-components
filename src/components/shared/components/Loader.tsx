@@ -1,54 +1,52 @@
 import React from "react";
 import styled from "styled-components";
 
+const LoadContainer = styled.div`
+  margin-top: 15rem;
+
+  h1 {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+`;
+
 const LoaderWrapper = styled.div`
-  
-  display: inline-block;
-  position: relative;
-  width: 64px;
-  height: 64px;
-  
-  div {
+  margin-bottom: 2rem;
+
+  .lds-dual-ring {
     display: inline-block;
-    position: absolute;
-    left: 6px;
-    width: 13px;
-    background: orange;
-    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
-  }
-  
-  div:nth-child(1) {
-    left: 6px;
-    animation-delay: -0.24s;
+    width: 6rem;
+    height: 6rem;
   }
 
-  div:nth-child(2) {
-    left: 26px;
-    animation-delay: -0.12s;
+  .lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 6rem;
+    height: 6rem;
+    margin: 1px;
+    border-radius: 50%;
+    border: .5rem solid orange;
+    border-color: orange transparent orange transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
   }
 
-  div:nth-child(3) {
-    left: 45px;
-    animation-delay: 0;
-  }
-
-  @keyframes lds-facebook {
+  @keyframes lds-dual-ring {
     0% {
-      top: 6px;
-      height: 51px;
+      transform: rotate(0deg);
     }
-    50%, 100% {
-      top: 19px;
-      height: 26px;
+    100% {
+      transform: rotate(360deg);
     }
   }
 `
 const Loader = () => (
-  <LoaderWrapper>
-    <div></div>
-    <div></div>
-    <div></div>
-  </LoaderWrapper>
+  <LoadContainer>
+    <LoaderWrapper>
+      <div className="lds-dual-ring"></div>
+    </LoaderWrapper>
+    <h1>Loading...</h1>
+  </LoadContainer>
 )
 
 export { Loader };
