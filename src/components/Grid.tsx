@@ -5,7 +5,7 @@ import { tap, delay, catchError } from "rxjs/operators";
 import { Section , GridContainer , Loader } from "./shared";
 import { getItems } from "../services";
 
-import { GridItems } from "./Views/Grid-Items";
+import { GridItemsView } from "./Views";
 
 interface Grid {
   $getItems: Subscription;
@@ -14,6 +14,7 @@ interface Grid {
 
 interface GridProps {
   dataUrl: string;
+  path: string;
 }
 
 interface GridState {
@@ -34,7 +35,7 @@ class Grid extends Component<GridProps, GridState> {
 
   componentDidMount() {
     this.$getItems = getItems(this.props.dataUrl).pipe(
-      delay(1000),
+      delay(300),
       tap(() => this.setState({ loading: false })),
       tap((items:any) => this.setState({ items: items })),
       catchError(error => {
@@ -52,8 +53,8 @@ class Grid extends Component<GridProps, GridState> {
 
     return (
       <Section flexDirection="column">
-        <GridContainer flexDirection="row" overFlow={loading ? "none" : "scroll"}>
-          { loading ? <Loader/> : <GridItems items={items}/> }
+        <GridContainer flexDirection="row" overFlowY={loading ? "none" : "scroll"}>
+          { loading ? <Loader/> : <GridItemsView items={items}/> }
         </GridContainer>
       </Section>
     )

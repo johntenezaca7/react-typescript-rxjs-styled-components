@@ -3,7 +3,7 @@ import { device } from "../Breakpoints";
 
 interface Grid_Container {
   flexDirection: string
-  overFlow: string;
+  overFlowY: string;
 }
 
 const GridContainer = styled.div<Grid_Container>`
@@ -14,7 +14,7 @@ const GridContainer = styled.div<Grid_Container>`
   flex-wrap: wrap;
   padding-top: 2rem;
   position: relative;
-  overflow: ${props => props.overFlow};
+  overflow-y: ${props => props.overFlowY};
   
   @media ${device.tablet} {
 

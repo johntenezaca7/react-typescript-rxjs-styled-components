@@ -1,9 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "@reach/router";
+import { ThemeInterface } from "../Theme";
+
+interface Nav {
+  theme: ThemeInterface
+}
 
 const Nav = styled.nav`
-  background-color: #ffb630e8;
+  background-color: ${props => props.theme.primaryBase};
+
   ul {
     display: flex;
     flex-direction: column;
@@ -21,7 +27,7 @@ const Nav = styled.nav`
     line-height: 60px; 
     padding: 0 40px; 
     font-size: 1.5rem;
-    color: black;
+    color: white;
     text-transform: capitalize;
     padding-left: 0;
 

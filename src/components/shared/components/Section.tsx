@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 interface Section {
   flexDirection: string;
+  theme: string;
 }
 
 const Section = styled.section<Section>`

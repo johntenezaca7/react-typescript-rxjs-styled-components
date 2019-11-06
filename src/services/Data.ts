@@ -7,6 +7,6 @@ enum Endpoints {
 
 const getItems = (url:string):Observable<Subscription> => ajax.getJSON(url);
 
-const getItemsById = (id:number):Observable<Subscription> => ajax.getJSON(`${Endpoints.Users}?id=${id}`);
+const getItemById = (id:number):Observable<Subscription> => ajax.getJSON(`${Endpoints.Users}?id=${id}`);
 
-export { getItems, getItemsById };
+export { getItems, getItemById };

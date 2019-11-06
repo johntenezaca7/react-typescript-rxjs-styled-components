@@ -23,7 +23,7 @@ class Home extends Component<any, HomeState> {
 
   componentDidMount() {
     this.subscription = loaderService().pipe(
-      delay(1000),
+      delay(300),
       tap(() => this.setState({ loading: false }))
     ).subscribe();
   }

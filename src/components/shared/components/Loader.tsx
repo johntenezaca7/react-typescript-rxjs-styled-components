@@ -1,5 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { ThemeInterface } from "../Theme";
+
+interface LoaderWrapper {
+  theme: ThemeInterface
+}
 
 const LoadContainer = styled.div`
   margin-top: 15rem;
@@ -26,8 +31,8 @@ const LoaderWrapper = styled.div`
     height: 6rem;
     margin: 1px;
     border-radius: 50%;
-    border: .5rem solid orange;
-    border-color: orange transparent orange transparent;
+    border: .5rem solid ${props => props.theme.primaryLight};
+    border-color: ${props => props.theme.primaryLight} transparent ${props => props.theme.primaryLight} transparent;
     animation: lds-dual-ring 1.2s linear infinite;
   }
 

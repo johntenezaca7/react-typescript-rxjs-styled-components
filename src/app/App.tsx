@@ -1,14 +1,17 @@
 import React from "react";
 import { MainGrid, MainRouter } from "./Config";
-import { NavBar, Section } from "../components/shared";
+import { NavBar, Section, ThemeWrapper } from "../components/shared";
 
-const App = (props:any):JSX.Element => (
+const App = ():JSX.Element => (
   <MainGrid>
-    <NavBar/>
-    <Section flexDirection="column">
-      <MainRouter />
-    </Section>
+    <ThemeWrapper>
+      <NavBar/>
+      <Section flexDirection="column">
+        <MainRouter />
+      </Section> 
+    </ThemeWrapper>
   </MainGrid>
 );
+
 
 export default App;

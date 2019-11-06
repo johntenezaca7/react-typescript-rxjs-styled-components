@@ -23,7 +23,7 @@ class Messages extends Component<any, MessagesState> {
 
   componentDidMount() {
     this.subscription = loaderService().pipe(
-      delay(1000),
+      delay(300),
       tap(() => this.setState({ loading: false }))
     ).subscribe();
   }
@@ -32,7 +32,7 @@ class Messages extends Component<any, MessagesState> {
     const { loading } = this.state;
     return(
       <Section flexDirection="column">
-        <GridContainer flexDirection="row" overFlow="none">
+        <GridContainer flexDirection="row" overFlowY="none">
           { loading ? <Loader/> : <div>Messages Loaded!</div>}
         </GridContainer>
       </Section>
