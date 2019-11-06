@@ -53,7 +53,7 @@ class Grid extends Component<GridProps, GridState> {
 
     return (
       <Section flexDirection="column">
-        <GridContainer flexDirection="row" overFlowY={loading ? "none" : "scroll"}>
+        <GridContainer flexDirection="row" overFlowY={loading ? "none" : "scroll"} paddingTop="2rem">
           { loading ? <Loader/> : <GridItemsView items={items}/> }
         </GridContainer>
       </Section>

@@ -4,7 +4,7 @@ import { tap, catchError, flatMap, delay } from "rxjs/operators";
 
 import { getItemById } from "../services";
 import { Section, Loader } from "./shared";
-import { ItemView } from "../components/Views"
+import { ItemWrapperView, ItemView } from "../components/Views"
 
 interface Item {
   $getItemById: Subscription
@@ -37,10 +37,14 @@ class Item extends Component <any, any> {
   }
 
   render() {
-    const { loading } = this.state;
+    const { loading, item } = this.state;
     return (
-      <Section flexDirection="row">
-        { loading ? <Loader/> : <ItemView item={this.state.item}/>}
+      <Section flexDirection="column">
+        { loading ? <Loader/> : 
+          <ItemWrapperView linkable={false} item={item}>
+            <ItemView item={item}/>
+          </ItemWrapperView>
+        }
       </Section>
     )
   }

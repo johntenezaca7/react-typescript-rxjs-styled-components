@@ -6,12 +6,17 @@ interface LoaderWrapper {
   theme: ThemeInterface
 }
 
+interface LoadContainer {
+  theme: ThemeInterface
+}
+
 const LoadContainer = styled.div`
   margin-top: 15rem;
 
   h1 {
     margin: 0;
     font-size: 1.8rem;
+    color ${props => props.theme.primaryDark}
   }
 `;
 

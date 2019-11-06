@@ -32,7 +32,7 @@ class Messages extends Component<any, MessagesState> {
     const { loading } = this.state;
     return(
       <Section flexDirection="column">
-        <GridContainer flexDirection="row" overFlowY="none">
+        <GridContainer flexDirection="row" overFlowY="none" paddingTop="2rem">
           { loading ? <Loader/> : <div>Messages Loaded!</div>}
         </GridContainer>
       </Section>

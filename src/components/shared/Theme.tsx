@@ -12,7 +12,7 @@ const theme: ThemeInterface = {
   fg: "palevioletred",
   primaryLight: "#8dc6ff",
   primaryBase: "#0064c8",
-  primaryDark: "#002952"
+  primaryDark: "#003366"
 };
 
 const ThemeWrapper = (props:any):JSX.Element => (

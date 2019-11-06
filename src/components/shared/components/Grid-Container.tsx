@@ -4,6 +4,7 @@ import { device } from "../Breakpoints";
 interface Grid_Container {
   flexDirection: string
   overFlowY: string;
+  paddingTop: string;
 }
 
 const GridContainer = styled.div<Grid_Container>`
@@ -11,8 +12,9 @@ const GridContainer = styled.div<Grid_Container>`
   display: flex;
   flex-direction: ${props => props.flexDirection};
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  padding-top: 2rem;
+  padding-top: ${props => props.paddingTop};
   position: relative;
   overflow-y: ${props => props.overFlowY};
   
